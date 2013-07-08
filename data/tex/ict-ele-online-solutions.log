@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2013.7.5)  8 JUL 2013 18:28
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/W32TeX) (format=pdflatex 2013.7.5)  8 JUL 2013 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1339,11 +1339,9 @@ File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 \@input{keywords-1.aux}
 \openout2 = `keywords-1.aux'.
 
-No file keywords-1.tex.
-(c:/texlive/2013/texmf-dist/tex/latex/printlen/printlen.sty
+(./keywords-1.tex) (c:/texlive/2013/texmf-dist/tex/latex/printlen/printlen.sty
 Package: printlen 2009/09/03 v1.1a print lengths with units
-)
-(c:/texlive/2013/texmf-dist/tex/latex/lipsum/lipsum.sty
+) (c:/texlive/2013/texmf-dist/tex/latex/lipsum/lipsum.sty
 Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
 \c@lips@count=\count182
 )
@@ -1642,9 +1640,6 @@ File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 (c:/texlive/2013/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
-LaTeX Font Info:    Font shape `T1/pcr/bx/n' in size <10> not available
-(Font)              Font shape `T1/pcr/b/n' tried instead on input line 22.
-
 (c:/texlive/2013/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 )
@@ -2027,18 +2022,18 @@ d.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 31121 strings out of 493315
- 556560 string characters out of 6141456
- 968274 words of memory out of 5000000
- 33519 multiletter control sequences out of 15000+600000
- 63852 words of font info for 54 fonts, out of 8000000 for 9000
+ 30743 strings out of 493315
+ 551521 string characters out of 6141456
+ 964918 words of memory out of 5000000
+ 33141 multiletter control sequences out of 15000+600000
+ 63231 words of font info for 52 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,17n,74p,3278b,2468s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,17n,74p,3278b,2466s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2013
 /texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2013/texmf-dist/fonts/
 enc/dvips/lm/lm-rm.enc}{c:/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
-}{c:/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2013/texmf
--dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2013/texmf-dist/fonts/type1/pub
+}{c:/texlive/2013/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2013/tex
+mf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2013/texmf-dist/fonts/type1/pub
 lic/lm/lmbx10.pfb><c:/texlive/2013/texmf-dist/fonts/type1/public/lm/lmbx12.pfb>
 <c:/texlive/2013/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2013/
 texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2013/texmf-dist/fonts/t
@@ -2046,12 +2041,11 @@ ype1/public/lm/lmr10.pfb><c:/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr1
 2.pfb><c:/texlive/2013/texmf-dist/fonts/type1/public/lm/lmr5.pfb><c:/texlive/20
 13/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/texlive/2013/texmf-dist/fonts/
 type1/public/lm/lmri12.pfb><c:/texlive/2013/texmf-dist/fonts/type1/public/lm/lm
-sy10.pfb><c:/texlive/2013/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb><c:/tex
-live/2013/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on ict-ele-online-solutions.pdf (14 pages, 630560 bytes).
+sy10.pfb><c:/texlive/2013/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on ict-ele-online-solutions.pdf (14 pages, 625232 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 486 compressed objects within 5 object streams
+ 519 PDF objects out of 1000 (max. 8388607)
+ 483 compressed objects within 5 object streams
  296 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 
