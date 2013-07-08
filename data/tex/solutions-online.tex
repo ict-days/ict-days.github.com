@@ -1,0 +1,156 @@
+\section{Lösungen}
+
+
+\ifteacher
+\subsection{Aufgabe 1}
+\begin{enumerate}[label=(\alph*)]
+	\item Die einzelnen Zeilen im Programm sind jeweils Dokumentiert
+	mit einem Kommentar. Kommentare erkennt man daran, dass diese mit
+	einem \lstinline{'} eingeleitet und in der Entwicklungsumgebung
+	grün dargestellt werden. Alles was rechts von diesem 
+	Zeichen steht, ist ein Kommentar und wird vom Computer ignoriert.\\
+	\textbf{Beispiel:} In der Zeile 3 steht der Kommentar 
+	\lstinline{'LED 0 einschalten}.
+	\begin{itemize}
+		\item Als erstes wird mittels \lstinline{HIGH 0} die LED 0 
+		eingeschaltet.
+		\item Danach wird eine Pause von 500 Millisekunden 
+		(\nicefrac{1}{2} Sekunde) mit \lstinline{PAUSE 500} eingelegt.
+		\item Mit \lstinline{LOW 0} wird die LED 0 wieder ausgeschaltet.
+		\item Erneut wird wieder mit \lstinline{PAUSE 500} eine halbe
+		Sekunde lang nichts gemacht.
+		\item Mit \lstinline{GOTO start} wird als nächstes die Zeile
+		im Programm ausgeführt wo das Label \lstinline{start} steht
+		(d.h. in Zeile 3). Durch das \lstinline{GOTO start} wird das
+		Programm unendlich oft wiederholt, da es am Ende immer an den
+		Anfang (\lstinline{start}) springt.
+	\end{itemize}
+	\item Um das Programm langsamer zu machen, muss die Pausenzeit
+	verlängert werden. Man könnte diese z.B. auf 1000ms setzen.
+	\lstinputlisting[label=, caption=]{../listings/test-slow.bas}
+	\item Um eine andere LED blinken zu lassen muss die Nummer hinter 
+	\lstinline{HIGH} und \lstinline{LOW} geändert werden, z.B. auf 7.
+	\lstinputlisting[label=,caption=]{../listings/test-other.bas}
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 2}
+\begin{enumerate}[label=(\alph*)]
+	\item Das Programm schaltet eine LED nach der anderen ein und wieder
+	aus. Es beginnt dabei bei der LED 0 und nach der LED 7 macht es von
+	vorne weiter.
+	\item ~
+	\item Um eine LED nach der anderen ein- und ausschalten zu lassen 
+	von der LED 7 beginnend zur LED 0 müsste wie folgt aussehen.
+	\lstinputlisting[label=,caption=]{../listings/halfknight-reverse.bas}
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 3}
+\begin{enumerate}[label=(\alph*)]
+	\item Wir können das Programm aus der vorhergehenden Aufgabe nehmen
+	und diese einfach erweitern.
+	\lstinputlisting[label=,caption=]{../listings/knightrider-simple.bas}
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 4}
+\begin{enumerate}[label=(\alph*)]
+	\item Um das Programm schneller zu machen muss lediglich die Pausenzeit
+	kleiner gewählt werden. Zum Beispiel auf 100ms mit
+	\lstinline{PAUSE 100}.
+	\item Ihnen sollte aufgefallen sein, dass die Veränderung der Pausenzeit
+	eine einfache Aufgabe ist, jedoch sehr mühsam da man diese an vielen 
+	Stellen im Programm von Hand ändern muss.
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 5}
+\begin{enumerate}[label=(\alph*)]
+	\item Die Taste 0 wird als Eingabe definiert. Ist diese gedrückt
+	beim Label \lstinline{start} so springt das Programm zum Label 
+	\lstinline{abc}. Dort angelangt wird die LED 4 eingeschaltet mit
+	\lstinline{HIGH 4}. Solange die Taste gedrückt ist, bleibt die
+	LED 4 eingeschaltet, denn es springt zu \lstinline{start} und
+	gleich danach zu \lstinline{abc}. Lässt man die Taste nun los
+	geht es nicht zu \lstinline{abc} sondern einfach zur nächsten Zeile
+	im Programm. Dort steht dann \lstinline{LOW 4} was die LED 4
+	ausschaltet.
+
+	\textbf{Zusammengefasst:}\\
+	Drückt man die Taste 0, so leuchtet die LED 4.
+	Lässt man sie los, so leuchtet sie nicht.
+	\item Drückt man eine Taste, so leuchtet immer die zugehörige LED.
+	Das hat nichts mit dem Programm zu tun sondern ist etwas spezielles
+	am Board selbst.
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 6}
+\begin{enumerate}[label=(\alph*)]
+	\item Einerseits müssen wir mehr Taster definieren und andererseits
+	müssen wir mehr Sprungsstellen definieren.
+	\lstinputlisting[label=,caption=]{../listings/button-quad.bas}
+	\item Es muss zwei mal nach einander angefragt werden ob die Tasten
+	gedrückt sind. Zudem können die Tasten in verschiedenen Reihenfolgen
+	gedrückt werden.
+	\lstinputlisting[label=,caption=]{../listings/button-double.bas}
+	\item Es gibt insgesamt 16 Kombinationen, denn man hat vier Taster
+	mit jeweils zwei Zuständen (Ein/Aus) und somit 
+	$2^4=2 \cdot 2 \cdot 2 \cdot 2=16$
+	Kombinationen.
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 7}
+\begin{enumerate}[label=(\alph*)]
+\item \dots
+\item \dots 
+\item Ein Zyklus soll 15 Sekunden dauern. In solch einen Zyklus soll eine gerade
+Anzahl Pausen mit 300 Millisekunden stattfinden. Cooles Problem denn wir können 
+einfach Algebra verwenden:
+\[  \text{15 Sekunden} = x \cdot 2 \cdot \text{Pausenzeit} \]
+\[  15 = x \cdot 2 \cdot 0.3 \qquad |\div 2 \]
+\[  \frac{15}{2} = x \cdot 0.3 \qquad |\div 0.3 \]
+\[ \frac{15}{2 \cdot 0.3} = x  \qquad |\Leftrightarrow x \]
+\[ x = \frac{15}{2 \cdot 0.3} \]
+\[ x = \frac{15}{0.6} \]
+\[ x = 25 \]
+Nun wissen wir, dass wir 25 Zyklen brauchen. Da wir bei 0 und nicht bei 1 zu Zählen 
+beginnen, müssen wir 1 abziehen d.h. wie schreiben \lstinline{FOR B2 = 0 TO 25}.
+\lstinputlisting[label=,caption=]{../listings/counter-blink.bas}
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 8}
+\begin{enumerate}[label=(\alph*)]
+\item \dots
+\item \dots
+\item \dots
+\end{enumerate}
+\fi
+
+\ifteacher
+\newpage
+\subsection{Aufgabe 9}
+\begin{enumerate}[label=(\alph*)]
+\item \dots
+\item \dots
+\item Code \\ \lstinputlisting[label=,caption=]{../listings/better-knight.bas}
+\item Code \\ \lstinputlisting[label=,caption=]{../listings/double-knight.bas}
+\end{enumerate}
+\fi

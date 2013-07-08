@@ -1,0 +1,190 @@
+\section{Theorie und Hinweise zu BASIC und BASIC Stamp}
+
+\subsection{Was ist BASIC?}
+\verb|BASIC| steht für 
+\emph{Beginner's All-purpose Symbolic Instruction Code}
+und bedeutet so viel wie
+\emph{symbolische Allzweck-Programmiersprache für Anfänger}.
+Diese Programmiersprache wurde 1964 entwickelt und bis heute 
+ständig erweitert. Das \verb|BASIC Stamp| verwendet einen neueren
+Dialekt dieser Programmiersprache. D.h. es ist sehr ähnlich aber 
+nicht genau gleich.
+
+\begin{lstlisting}[label=Pure BASIC Code, caption=Echter BASIC Code]
+10  INPUT "Geben Sie bitte Ihren Namen ein"; A$
+20  PRINT "Guten Tag, "; A$
+30  INPUT "Wie viele Sterne möchten Sie?"; S
+35  S$ = ""
+40  FOR I = 1 TO S
+50  S$ = S$ + "*"
+55  NEXT I
+60  PRINT S$
+70  INPUT "Möchten Sie noch mehr Sterne?"; Q$
+80  IF LEN(Q$) = 0 THEN GOTO 70
+90  L$ = LEFT$(Q$, 1)
+100 IF (L$ = "J") OR (L$ = "j") THEN GOTO 30
+110 PRINT "Auf Wiedersehen";
+120 FOR I = 1 TO 200
+130 PRINT A$; " ";
+140 NEXT I
+150 PRINT
+\end{lstlisting}
+
+\noindent
+Berühmt wurde diese Programmiersprache unter anderem durch den C64,
+ein Computer aus dem Jahre 1984. Dieser hatte kein Betriebssystem,
+wie Sie das auf Ihrem Computer kennen und gewohnt sind 
+(Windows, GNU/Linux, MacOS, \dots), sondern er hatte einen 
+\verb|BASIC|-Interpreter. D.h. man konnte "programmieren". 
+
+Wer gerne mehr über die Programmiersprache \verb|BASIC| oder den C64
+erfahren möchte,
+findet auf der freien Enzyklopädie Wikipedia gute Informationen
+(siehe \url{http://de.wikipedia.org/wiki/BASIC} und 
+\url{http://de.wikipedia.org/wiki/C64}).
+
+\subsection{Entwicklungsumgebung}
+Die Entwicklungsumgebung, die zur Programmierung des \verb|BASIC Stamp|
+benötigt wird, kann auf der Homepage des Herstellers bezogen werden auf
+\begin{center}
+\url{http://www.parallax.com}
+\end{center}
+
+\noindent
+Auf dieser Seite navigieren Sie zu \verb|Downloads > BASIC Stamp Software|.
+Dort finden Sie die Software für Windows, Macintosh und Linux.
+
+Auf der Homepage finden Sie auch weitere Informationen zur Programmiersprache.
+
+\newpage
+\subsection{Instruction Set}
+Wie jede Programmiersprache hat auch \verb|BASIC| ein sogenanntes Instruction Set.
+Diese zeigt auf, welche Befehle es in der Programmiersprache gibt und wie man 
+diese einsetzt. Der Hersteller \url{www.parallax.com} bietet hierzu eine grosse
+Dokumentation an. Wir möchten hier nur auflisten, was für uns im Kurs wichtig ist.
+
+\begin{table}[h!]
+\centering
+
+\begin{tabular}{| l || l | p{4cm} | }
+\rowcolor[gray]{0.5}
+\hline
+	\textbf{Befehl} 
+	& \textbf{Beispiel} 
+	& \textbf{Beschreibung} \\
+\hline
+\hline
+	\verb|END| 
+	& \verb|END| 
+	& \footnotesize{Ende/Bei Reset startet das Programm neu.} \\ 
+\hline
+\rowcolor[gray]{0.8}
+	\verb|FOR| \dots \verb|NEXT| 
+	& \verb|FOR B2 = 0 TO 255| \dots \verb|NEXT| 
+	& \footnotesize{Zählt von 0 bis 255, erst dann geht es zur Zeile nach dem \verb|NEXT|.} \\ 
+\hline
+	\verb|GOSUB| 
+	& \verb|GOSUB label| \dots \verb|RETURN|
+	& \footnotesize{\verb|GOSUB|: Springe zu \verb|label|. \verb|RETURN|: Springe zurück zur Zeile nach GOSUB.} \\
+\hline
+\rowcolor[gray]{0.8}
+	\verb|GOTO| 
+	& \verb|GOTO label| 
+	& \footnotesize{Springe zu \verb|label|.} \\
+\hline
+	\verb|HIGH|
+	& \verb|HIGH 3| 
+	& \footnotesize{Setze Pin 3 auf logisch 1 (d.h. einschalten).} \\
+\hline
+\rowcolor[gray]{0.8}
+	\verb|IF| \dots \verb|THEN|
+	& \verb|IF B2 = 1 THEN label|
+	& \footnotesize{Falls B2 gleich 1 ist, dann springe zu \verb|label|.} \\
+\hline
+	\verb|INPUT| 
+	& \verb|INPUT 5| 
+	& \footnotesize{Pin 5 als Eingabe definieren.} \\
+\hline
+\rowcolor[gray]{0.8}
+	\verb|LOW|
+	& \verb|LOW 3| 
+	& \footnotesize{Setze Pin 3 auf logisch 0 (d.h. ausschalten).} \\
+\hline
+	\verb|OUTPUT| 
+	& \verb|OUTPUT 3| 
+	& \footnotesize{Pin 3 als Ausgabe definieren.} \\
+\hline
+\rowcolor[gray]{0.8}
+	\verb|PAUSE| 
+	& \verb|PAUSE 100| 
+	& \footnotesize{Macht nichts für 100 Millisekunden.} \\
+\hline
+	\verb|TOGGLE|
+	& \verb|TOGGLE 5| 
+	& \footnotesize{Invertiere Pin 5. Invertieren heisst umkehren, d.h. aus 0 wird 1 und aus 1 wird 0.} \\
+\hline
+\end{tabular} 
+\end{table}
+
+\noindent
+Wer gerne auch nach dem Kurs Programme schreiben möchte, kann beim Instruktor 
+nach einem grösseren Instruction Set nachfragen.
+
+\newpage
+\subsection{Platzhalter}\label{Platzhalter}
+Platzhalter oder Variabeln vereinfachen die Programmierung, denn Sie
+erlauben es, bestimmten Dingen eigene Namen zu geben usw.
+
+Sie haben in der Aufgabe aus \ref{timing-problem}
+gelernt, dass z.B. hinter der Bezeichnung \lstinline{PIN0} der Taster
+steht. In Ihrem Programm muss dieser nicht zwingend \lstinline{PIN0}
+heissen, denn Sie können einen eigenen Namen für diesen erstellen
+z.B. \lstinline{Taste0}.
+
+Um solche Variablen zu erstellen, braucht es Speicher (RAM).
+Leider gibt es beim \verb!BASIC Stamp! nicht sehr viel davon sondern
+nur die folgenden Speicherstellen:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{lll}
+\textbf{Wort} & \textbf{Byte} & \textbf{Bit} \\
+\hline 
+&&\\
+W0 	& B0 	& Bit 0--7 		\\
+	& B1 	& Bit 8--15 	\\
+&&\\
+W1	& B2	& Bit 0--7 		\\
+	& B3	& Bit 8--15 	\\
+&&\\
+W2 	& B4 	& Bit 0--7 		\\
+	& B5 	& Bit 8--15 	\\
+&&\\
+W3	& B6	& Bit 0--7 		\\
+	& B7	& Bit 8--15 	\\
+&&\\
+W4 	& B8 	& Bit 0--7 		\\
+	& B9 	& Bit 8--15 	\\
+&&\\
+W5	& B10	& Bit 0--7 		\\
+	& B11	& Bit 8--15 	\\
+\end{tabular}
+\caption{RAM-Übersicht für Variablen}
+\end{table}
+
+\noindent
+Lassen Sie sich nicht einschüchtern oder verwirren durch die obige Tabelle.
+Diese zeigt lediglich auf, dass das \verb|BASIC Stamp| in Worten speichert,
+in denen jeweils zwei Byte liegen. Ein solches Byte hat jeweils 8 Bit.
+
+\[ \text{ein Wort} \quad 
+   = \quad \text{zwei Byte} \quad
+   = \quad 2 \cdot (\text{8 Bit}) \quad
+   = \quad 2^{16} \quad
+   = \quad 65536 \]
+
+\noindent
+Beim arbeiten mit diesem Speicher muss man sich entscheiden, was man verwenden
+möchte. Benutzt man das Wort \lstinline{W0} so kann man nicht auch noch die
+Bytes \lstinline{B0} und \lstinline{B1} verwenden, da diesen ja im Wort
+\lstinline{W0} enthalten sind. Dies gilt natürlich für alle Speicherplätze.

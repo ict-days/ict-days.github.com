@@ -1,0 +1,45 @@
+\documentclass[a4paper,
+               10pt,
+               fleqn]{article}
+
+\author{Ervin Mazlagic}
+\title{Paper Manual}
+
+\usepackage{ict-paper}
+\usepackage{graphicx}
+
+
+\newcommand{\textdirectcurrent}{%
+	\settowidth{\dimen0}{$=$}%
+	    \vbox to .85ex {\offinterlineskip
+	        \hbox to \dimen0{\leaders\hrule\hfill}
+			\vskip.35ex
+			\hbox to \dimen0{%
+				\leaders\hrule\hskip.2\dimen0\hfill
+				\leaders\hrule\hskip.2\dimen0\hfill
+				\leaders\hrule\hskip.2\dimen0
+			}
+		\vfill
+	}%
+}
+\newcommand{\mathdirectcurrent}{\mathrel{\textdirectcurrent}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\newboolean{teacher}
+\setboolean{teacher}{true}
+
+\begin{document}
+
+\input{ict-titlepage}
+
+\tableofcontents
+\newpage
+
+% Aufgaben
+\input{solutions-online}
+\newpage
+
+%\includepdf[pages=-]{instruction-set.pdf}
+
+\end{document}
